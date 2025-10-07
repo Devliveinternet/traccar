@@ -1,0 +1,12 @@
+﻿services:
+  traccar:
+    image: traccar/traccar:latest
+    container_name: traccar
+    ports:
+      - "8082:8082"   # painel web
+      - "5055:5055"   # protocolo OsmAnd (exemplo)
+    volumes:
+      - "./data:/opt/traccar/data"
+      - "./logs:/opt/traccar/logs"
+      - "./conf:/opt/traccar/conf"
+    restart: unless-stopped
